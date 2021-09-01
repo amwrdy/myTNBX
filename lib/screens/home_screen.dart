@@ -17,23 +17,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  BillSummaryBloc _billSummaryBloc;
   Future<dynamic> _post;
 
-@override
+  @override
   void initState() {
     print("im initializing");
     // TODO: implement initState
     super.initState();
 
-    var ui = UsrInf();
-    //var bs = BillSummary(accounts: ["2205571621s01","220266082800","210008006106"], usrInf: ui);
-    _billSummaryBloc = BillSummaryBloc();
-    _billSummaryBloc.fetchBillSummary(["220557162101","220266082800","210008006106"]);
-    }
-  getData() async* {
-    await Future.delayed(Duration(seconds: 3));
-    _billSummaryBloc.fetchBillSummary(["220557162101","220266082800","210008006106"]);
+    getData();
+  }
+
+
+  getData() async{
+    billSummaryBloc.fetchBillSummary2(["220557162101","220266082800","210008006106"]);
   }
 
   @override
